@@ -1,0 +1,31 @@
+version: "3.3"
+services:
+  go:
+    container_name: "go"
+    build:
+      context: ../
+      dockerfile: ./build/images/rest.Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - "../:/go/src/app"
+    depends_on:
+      - db
+    networks:
+      - dNetwork
+  db:
+    image: "mongo:latest"
+    container_name: "db"
+    ports:
+      - "27017:27017"
+    volumes:
+      - "mongodata:/data/db"
+    networks:
+      - dNetwork
+
+volumes:
+  ..:
+  mongodata:
+
+networks:
+  dNetwork:
