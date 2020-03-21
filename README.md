@@ -14,3 +14,16 @@ It is a REST API which has some functions about user handling.
 These days I watch a course about Docker so I decided to dockerize the project.
 
 Feel free to give me feedback!
+
+## Run
+
+You need to have Docker and Docker compose installed.
+```
+$ cd build/
+$ docker-compose up -d --build
+```
+
+## Stop
+```
+$ docker-compose stop
+```
